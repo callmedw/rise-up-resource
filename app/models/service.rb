@@ -1,4 +1,8 @@
 class Service < ApplicationRecord
+
+  geocoded_by :street_address
+  after_validation :geocode
+
   scope :monday, -> { where('days_of_the_week LIKE ?', '%Monday%')}
   scope :tuesday, -> { where('days_of_the_week LIKE ?', '%Tuesday%')}
   scope :wednesday, -> { where('days_of_the_week LIKE ?', '%Wednesday%')}

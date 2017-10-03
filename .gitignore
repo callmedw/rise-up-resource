@@ -17,3 +17,5 @@
 /yarn-error.log
 
 .byebug_history
+config/authentication_details.yml
+config/secrets.yml

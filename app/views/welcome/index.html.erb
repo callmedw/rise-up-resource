@@ -4,6 +4,24 @@
     <h1>Rise Up Resource</h1>
   </div>
 </div>
+<div class="nav-row">
+  <nav class="resource-nav">
+    <p class="navbar-next">
+      <%= link_to 'EMERGENCY', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'FOOD', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'CLOTHING', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'COUNSELING', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'EMPLOYMENT', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'FINANCIAL ASSISTANCE', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'HEALTH', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'LEGAL', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'ADDICTION', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'YOUTH', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'GLBTQI', root_path, :class => 'navbar-link-1' %>  
+      <%= link_to 'VETERANS', root_path, :class => 'navbar-link-1' %>
+    </p>
+  </nav>
+</div>
 <hr/>
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
@@ -12,19 +30,9 @@
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers([
-      {
-        "lat": 0,
-        "lng": 0,
-        "picture": {
-          "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-          "width":  32,
-          "height": 32
-        },
-        "infowindow": "hello!"
-      }
-    ]);
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
 </script>
+

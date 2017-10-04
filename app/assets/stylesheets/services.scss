@@ -7,8 +7,10 @@
 body, html {
   height: 100%;
   margin: 0;
+  font-family: Raleway, sans-serif;
 }
 
+/////////// header/logo
 .logo {
   text-align: center;
   margin: 0;
@@ -19,6 +21,8 @@ body, html {
   
 #birdflight {
   float: left;
+  top: 0;
+  height: 200px;
 }
 
 h1{
@@ -26,20 +30,48 @@ h1{
   font-family: 'Dancing Script', cursive;
   font-size: 100px;
   position: absolute; 
-  top: 200px; 
   left: 0; 
+  top: 65px;
   width: 100%; 
  }
 }
 
+/////////// navbars
 .navbar-link {
   color: black;
+  padding: 1px;
+}
+.navbar-link-1 {
+  color: white;
+  text-align: center;
+  opacity: .7;
+  padding: 8px;
+  width: 100%;
+}
+:any-link:hover {
+  text-decoration: none;
+  color: white;
+  opacity: 1;
 }
 
+.resource-nav {
+  padding: 5px;
+}
 nav {
   background-color: white;
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
 }
 
+.navbar-next {
+  padding: 2px;
+  color: goldenrod;
+  text-align: center;
+  background: black;
+}
+
+
+/////////// google maps 
 #map {
 height: 600px;
 width: 600px;
@@ -50,6 +82,3 @@ margin-top: 50px;
   margin-left: 245px;
 }
 
-nav {
-  font-family: Raleway, sans-serif;
-}

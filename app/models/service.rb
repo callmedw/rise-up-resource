@@ -10,5 +10,7 @@ class Service < ApplicationRecord
   scope :friday, -> { where('days_of_the_week LIKE ?', '%Friday%')}
   scope :saturday, -> { where('days_of_the_week LIKE ?', '%Saturday%')}
   scope :sunday, -> { where('days_of_the_week LIKE ?', '%Sunday%')}
+
+  scope :food, -> { where(service_code: 'Food') }
 end
  

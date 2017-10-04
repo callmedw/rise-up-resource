@@ -8,6 +8,8 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Raleway, sans-serif;
+  background-color: whitesmoke;
+  padding: 10px;
 }
 
 /////////// header/logo
@@ -36,11 +38,19 @@ h1{
  }
 }
 
+
 /////////// navbars
 .navbar-link {
   color: black;
   padding: 1px;
+  opacity: .7;
 }
+.navbar-link:hover {
+  text-decoration: none;
+  color: #353333;
+  opacity: 1;
+} 
+
 .navbar-link-1 {
   color: white;
   text-align: center;
@@ -48,7 +58,7 @@ h1{
   padding: 8px;
   width: 100%;
 }
-:any-link:hover {
+.navbar-link-1:hover {
   text-decoration: none;
   color: white;
   opacity: 1;
@@ -57,8 +67,12 @@ h1{
 .resource-nav {
   padding: 5px;
 }
+
+.nav-row {
+ margin: 5px;
+}
+
 nav {
-  background-color: white;
   font-family: Raleway, sans-serif;
   font-weight: 600;
 }
@@ -70,15 +84,23 @@ nav {
   background: black;
 }
 
+li {
+  list-style: none;
+}
 
 /////////// google maps 
 #map {
-height: 600px;
-width: 600px;
+height: 300px;
+width: 300%;
 margin-top: 50px;
+left: 0;
 }
 
 .map-row {
   margin-left: 245px;
 }
 
+
+.col-md-6 {
+  width: 50%;
+}

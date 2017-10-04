@@ -24,7 +24,7 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   # allow for admin field
-  config.attr_accessible_role { :admin }
+  config.attr_internal_accessor { :admin }
 
   config.actions do
     dashboard                     # mandatory

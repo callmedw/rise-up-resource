@@ -1,0 +1,85 @@
+<div class="row">
+  <h1> Food Programs </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div style='width: 575px;'>
+      <div id="map" style='width: 575px; height: 400px;'></div>
+    </div>
+  </div>
+  <br>
+
+  <div class="col-md-6">
+  <select name="day_of_the_week">
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+  </select>
+
+    <ul>
+      <% @services.each do |service| %>
+        <li><h3><%= service.program_name %></h3>
+        <p><%= service.phone  %></p>
+        <p><%= service.street_address %></p>
+        <p><%= service.location_notes  %></p>
+        <p><%= service.web_address  %></p>
+        <p><%= service.description  %></p>
+        <p><%= service.comments  %></p>
+        <p><%= service.served_populations %></p>
+        <p><%= service.hours_of_operation %></p>
+        <%= service.days_of_the_week  %></li>
+      <% end %>
+    </ul>
+
+
+  <h3>Monday Food</h3>
+  <% @services.monday.each do |service| %>
+    <li><%= service.program_name %></li>
+  <% end %>
+  <hr>
+  <h3>Tuesday service</h3>
+  <% @services.tuesday.each do |service| %>
+    <li><%= service.program_name %></li>
+  <% end %>
+  <hr>
+  <h3>Wednesday service</h3>
+  <% @services.wednesday.each do |service| %>
+    <li><%= service.program_name %></li>
+  <% end %>
+  <hr>
+  <h3>Thursday service</h3>
+  <% @services.thursday.each do |service| %>
+    <li><%= service.program_name %></li>
+  <% end %>
+  <hr>
+  <h3>Friday service</h3>
+  <% @services.friday.each do |service| %>
+    <li><%= service.program_name %></li>
+  <% end %>
+  <hr>
+  <h3>Saturday service</h3>
+  <% @services.saturday.each do |service| %>
+    <li><%= service.program_name %></li>
+  <% end %>
+  <hr>
+  <h3>Sunday service</h3>
+  <% @services.sunday.each do |service| %>
+    <li><%= service.program_name %></li>
+  <% end %>
+  <hr>
+  </div>
+</div>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

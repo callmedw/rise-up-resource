@@ -1,5 +1,4 @@
 class Service < ApplicationRecord
-
   geocoded_by :street_address
   after_validation :geocode
 
@@ -11,6 +10,5 @@ class Service < ApplicationRecord
   scope :saturday, -> { where('days_of_the_week LIKE ?', '%Saturday%')}
   scope :sunday, -> { where('days_of_the_week LIKE ?', '%Sunday%')}
 
-  scope :food, -> { where(service_code: 'Food') }
 end
  

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root :to => 'services#index'
+  resources :services 
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root :to => 'welcome#index'
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  resources :food 
-
+  devise_for :admins
 end

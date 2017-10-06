@@ -37,6 +37,7 @@ gem 'autoprefixer-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'simple_form'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

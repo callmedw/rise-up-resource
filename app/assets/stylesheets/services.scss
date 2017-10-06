@@ -38,17 +38,18 @@ h1{
  }
 }
 
-
 /////////// navbars
 .navbar-link {
   color: black;
   padding: 1px;
   opacity: .7;
+  font-weight: 400;
 }
 .navbar-link:hover {
   text-decoration: none;
   color: #353333;
   opacity: 1;
+  font-weight: 800;
 } 
 
 .navbar-link-1 {
@@ -86,6 +87,41 @@ nav {
 
 li {
   list-style: none;
+}
+
+.weekday-sort-links {
+  padding: 2px;
+  color: black;
+  text-align: center;
+  border: 2px solid black;
+  background: goldenrod;
+  margin: 2px;
+  border-radius: 2px;
+}
+.weekday-sort-links:hover {
+  text-decoration: none;
+  border: 3px solid goldenrod;
+  color: black;
+} 
+
+.weekday-sort-list {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.service-header {
+  margin-top:25px;
+  text-align: center;
+}
+
+.service-list {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.no-service {
+  margin-top: 20px;
+  text-align: center;
 }
 
 /////////// google maps 

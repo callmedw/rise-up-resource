@@ -1,0 +1,3 @@
+class PopularLink < ApplicationRecord
+
+end

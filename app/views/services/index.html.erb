@@ -17,7 +17,7 @@
       <%= link_to "All Days", services_path(:all), class: "weekday-sort-links" %>
       <%= link_to "Monday", services_path(:monday), class: "weekday-sort-links" %>
       <%= link_to "Tuesday", services_path(:tuesday), class: "weekday-sort-links" %>
-      <%= link_to "Wednesday", service_path(:wednesday), class: "weekday-sort-links" %>
+      <%= link_to "Wednesday", services_path(:wednesday), class: "weekday-sort-links" %>
       <%= link_to "Thursday", services_path(:thursday), class: "weekday-sort-links" %>
       <%= link_to "Friday", services_path(:friday), class: "weekday-sort-links" %>
       <%= link_to "Saturday", services_path(:saturday), class: "weekday-sort-links" %>
@@ -26,6 +26,7 @@
 
     <% if @services.any? %>
       <div class="service-list">
+      <p><%= @how_many_services %> service(s) for this day</p>
         <ul>
           <% @services.each do |service| %>
             <li><h3><%= service.program_name %></h3>
@@ -48,8 +49,6 @@
     <% end %>
   </end>
     
-
-
 <script type="text/javascript">
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

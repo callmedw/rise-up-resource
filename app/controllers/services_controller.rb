@@ -17,6 +17,7 @@ class ServicesController < ApplicationController
       @services = @services.friday if request.original_fullpath == "/services.friday"
       @services = @services.saturday if request.original_fullpath == "/services.saturday"
       @services = @services.sunday if request.original_fullpath == "/services.sunday"
+      @how_many_services = @services.length
 
       @hash = Gmaps4rails.build_markers(@services) do |service, marker|
         marker.lat service.latitude

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root :to => 'services#index'
+  root :to => 'welcome#index'
   resources :services 
+  resources :clothings
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   

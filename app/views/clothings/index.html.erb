@@ -1,0 +1,56 @@
+<div class="row">
+<div class="service-header">
+  <h1> CLOTHING PROGRAMS </h1>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-6">
+<div style='width: 575px;'>
+  <div id="map" style='width: 575px; height: 400px;'></div>
+</div>
+</div>
+<br>
+
+<div class="col-md-6">
+<div class="weekday-sort-list">
+  <%= link_to "All", clothings_path(:all), class: "weekday-sort-links" %>
+  <%= link_to "Any", clothings_path(:any), class: "weekday-sort-links" %>
+  <%= link_to "Women", clothings_path(:women), class: "weekday-sort-links" %>
+  <%= link_to "Girls", clothings_path(:girls), class: "weekday-sort-links" %>
+  <%= link_to "Men", clothings_path(:men), class: "weekday-sort-links" %>
+  <%= link_to "Boys", clothings_path(:boys), class: "weekday-sort-links" %>
+  <%= link_to "Newborn", services_path(:newborn), class: "weekday-sort-links" %>
+</div>
+
+<% if @clothings.any? %>
+  <div class="service-list">
+  <p><%= @how_many_clothings %> clothing programs on this day</p>
+    <ul>
+      <% @clothings.each do |clothing| %>
+        <li><h3><%= clothing.program_name %></h3>
+        <p><%= clothing.phone_number  %></p>
+        <p><%= clothing.address %></p>
+        <p><strong><a href="<%= clothing.web_address  %>"><%= clothing.web_address  %></a></strong></p>
+        <p><%= clothing.populations_served  %></p>
+        <p><%= clothing.gender  %></p>
+        <p><%= clothing.notes %></p>
+        <br>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <div class="no-service">      
+    <h3>There aren't any clothing programs on this day</h3>
+  </div>
+<% end %>
+</end>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+markers = handler.addMarkers(<%=raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+});
+</script>

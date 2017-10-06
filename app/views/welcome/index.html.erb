@@ -1,0 +1,21 @@
+<div class="col-md-9">
+  <div class="intro-p">
+    <p class="intro-paragraph"> Rise Up Resource aims to provide a centralized location for information for those in need. If you have any suggestions, questions, or additions to services please don't hesitate to email. Keep in mind this is a non-profit group of volunteers so response times vary. Thank you!<p>
+  </div>
+</div>
+
+
+
+
+<div class="col-md-3">
+  <div class="hot-link-container">
+    <% @hot_links.each do |hot_link| %>
+      <div class="hot-links">
+        <h3><strong><a href="<%= hot_link.url  %>"><%= hot_link.name %></a></strong></h3>
+        <img class="hot-link-image" src="<%= hot_link.image  %>">
+        <p><%= hot_link.description %></p>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>

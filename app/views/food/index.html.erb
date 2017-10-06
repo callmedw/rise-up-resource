@@ -1,0 +1,59 @@
+<div class="row">
+<div class="service-header">
+  <h1> FOOD PROGRAMS </h1>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-6">
+<div style='width: 575px;'>
+  <div id="map" style='width: 575px; height: 400px;'></div>
+</div>
+</div>
+<br>
+
+<div class="col-md-6">
+<div class="weekday-sort-list">
+  <%= link_to "All Days", services_path(:all), class: "weekday-sort-links" %>
+  <%= link_to "Monday", services_path(:monday), class: "weekday-sort-links" %>
+  <%= link_to "Tuesday", services_path(:tuesday), class: "weekday-sort-links" %>
+  <%= link_to "Wednesday", services_path(:wednesday), class: "weekday-sort-links" %>
+  <%= link_to "Thursday", services_path(:thursday), class: "weekday-sort-links" %>
+  <%= link_to "Friday", services_path(:friday), class: "weekday-sort-links" %>
+  <%= link_to "Saturday", services_path(:saturday), class: "weekday-sort-links" %>
+  <%= link_to "Sunday", services_path(:sunday), class: "weekday-sort-links" %>
+</div>
+
+<% if @services.any? %>
+  <div class="service-list">
+  <p><%= @how_many_services %> service(s) for this day</p>
+    <ul>
+      <% @services.each do |service| %>
+        <li><h3><%= service.program_name %></h3>
+        <p><%= service.phone  %></p>
+        <p><%= service.street_address %></p>
+        <p><%= service.location_notes  %></p>
+        <p><strong><a href="<%= service.web_address  %>"><%= service.web_address  %></a></strong></p> 
+        <p><%= service.description  %></p>
+        <p><%= service.comments  %></p>
+        <p><%= service.served_populations %></p>
+        <p><%= service.hours_of_operation %></p>
+        <br>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <div class="no-service">      
+    <h3>There aren't any services offered on this day</h3>
+  </div>
+<% end %>
+</end>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+markers = handler.addMarkers(<%=raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+});
+</script>
